@@ -4,11 +4,14 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
 import java.time.Duration;
+
 import org.openqa.selenium.By;
+
 public class SharelaneTests {
     @Test
-    public void signUpPositiveTest (){
+    public void signUpPositiveTest() {
         RemoteWebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
@@ -20,50 +23,80 @@ public class SharelaneTests {
         driver.quit();
 
     }
+
     @Test
-    public void signUpPNegativeTest (){
+    public void signUpPNegativeTest1() {
         RemoteWebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.navigate().to("https://www.sharelane.com/cgi-bin/register.py");
-        driver.findElement(By.name("zip_code")).sendKeys("12345");
+        driver.findElement(By.name("zip_code")).sendKeys("");
         driver.findElement(By.cssSelector("input[value=Continue]")).click();
-        boolean isFirstNameDisplayed = driver.findElement(By.name("first_name")).isDisplayed();
+        boolean isFirstNameDisplayed = driver.findElement(By.cssSelector("input[value=Continue]")).isDisplayed();
         Assert.assertTrue(isFirstNameDisplayed);
         driver.quit();
 
     }
+
     @Test
-    public void signUpPNegativeTest2 (){
+    public void signUpPNegativeTest2() {
         RemoteWebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.navigate().to("https://www.sharelane.com/cgi-bin/register.py");
-        driver.findElement(By.name("zip_code")).sendKeys("12345");
+        driver.findElement(By.name("zip_code")).sendKeys("12345№");
         driver.findElement(By.cssSelector("input[value=Continue]")).click();
-        boolean isFirstNameDisplayed = driver.findElement(By.name("first_name")).isDisplayed();
+        boolean isFirstNameDisplayed = driver.findElement(By.cssSelector("input[value=Continue]")).isDisplayed();
         Assert.assertTrue(isFirstNameDisplayed);
         driver.quit();
     }
+
     @Test
-    public void signUpPNegativeTest3 (){
+    public void signUpPNegativeTest3() {
         RemoteWebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.navigate().to("https://www.sharelane.com/cgi-bin/register.py");
-        driver.findElement(By.name("zip_code")).sendKeys("12345");
+        driver.findElement(By.name("zip_code")).sendKeys("1234");
         driver.findElement(By.cssSelector("input[value=Continue]")).click();
-        boolean isFirstNameDisplayed = driver.findElement(By.name("first_name")).isDisplayed();
+        boolean isFirstNameDisplayed = driver.findElement(By.cssSelector("input[value=Continue]")).isDisplayed();
         Assert.assertTrue(isFirstNameDisplayed);
         driver.quit();
     }
+
     @Test
-    public void signUpPNegativeTest4 (){
+    public void signUpPNegativeTest4() {
         RemoteWebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.navigate().to("https://www.sharelane.com/cgi-bin/register.py");
-        driver.findElement(By.name("zip_code")).sendKeys("12345@");
+        driver.findElement(By.name("zip_code")).sendKeys("sd");
+        driver.findElement(By.cssSelector("input[value=Continue]")).click();
+        boolean isFirstNameDisplayed = driver.findElement(By.cssSelector("input[value=Continue]")).isDisplayed();
+        Assert.assertTrue(isFirstNameDisplayed);
+        driver.quit();
+    }
+
+    @Test
+    public void signUpPNegativeTest5() {
+        RemoteWebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.navigate().to("https://www.sharelane.com/cgi-bin/register.py");
+        driver.findElement(By.name("zip_code")).sendKeys("ыв");
+        driver.findElement(By.cssSelector("input[value=Continue]")).click();
+        boolean isFirstNameDisplayed = driver.findElement(By.cssSelector("input[value=Continue]")).isDisplayed();
+        Assert.assertTrue(isFirstNameDisplayed);
+        driver.quit();
+    }
+
+    @Test
+    public void signUpPNegativeTest6() {
+        RemoteWebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.navigate().to("https://www.sharelane.com/cgi-bin/register.py");
+        driver.findElement(By.name("zip_code")).sendKeys("SELECT * FROM book");
         driver.findElement(By.cssSelector("input[value=Continue]")).click();
         boolean isFirstNameDisplayed = driver.findElement(By.cssSelector("input[value=Continue]")).isDisplayed();
         Assert.assertTrue(isFirstNameDisplayed);
