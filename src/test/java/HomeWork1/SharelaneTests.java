@@ -18,6 +18,7 @@ public class SharelaneTests {
         boolean isFirstNameDisplayed = driver.findElement(By.name("first_name")).isDisplayed();
         Assert.assertTrue(isFirstNameDisplayed);
         driver.quit();
+
     }
     @Test
     public void signUpPNegativeTest (){
@@ -30,6 +31,7 @@ public class SharelaneTests {
         boolean isFirstNameDisplayed = driver.findElement(By.name("first_name")).isDisplayed();
         Assert.assertTrue(isFirstNameDisplayed);
         driver.quit();
+
     }
     @Test
     public void signUpPNegativeTest2 (){
